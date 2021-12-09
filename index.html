@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ip Tracker</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+    <script src="script.js" defer></script>    
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 class="title">IP Address Tracker</h1>
+        <form>
+            <div class="container-input">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for any IP address or domain">
+                <button id="submit-button" type="submit"></button>
+            </div>
+            <div class="container-output">
+                <div class="output-content">
+                    <p class="subtitle">ip adress</p>
+                    <div data-ip class="data">192.212.174.101</div>
+                </div>
+                <div class="output-content">
+                    <p class="subtitle">location</p>
+                    <div data-ip class="data">Brooklyn, NY 10001</div>
+                </div>
+                <div class="output-content">
+                    <p class="subtitle">timezone</p>
+                    <div data-ip class="data">UTC -05.00</div>
+                </div>
+                <div class="output-content">
+                    <p class="subtitle">isp</p>
+                    <div data-ip class="data">SpaceX Starlink</div>
+                </div>
+                
+            </div>            
+        </form>
+        <div id="map"></div>        
+    </div> 
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGhhbWlkb3UiLCJhIjoiY2t3eG8wbGg1MGZzMzJ1cTEzdTdncnYzYyJ9.0mJK2tOSq02Y3OhqQ_x9hQ';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [-74.5, 40], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+    </script>   
+</body>
+</html>
