@@ -7,8 +7,12 @@ const dataTimezone = document.querySelector("[data-timezone]");
 const dataIsp = document.querySelector("[data-isp]");
 
 const bypass_cors_url = 'https://cors-anywhere.herokuapp.com/';
-const api_uri = 'https://geo.ipify.org/api/';
-const current_verion = 'v1';
+
+const apiLink = "https://geo.ipify.org/api/v2/country?apiKey=at_gbpt1y9UojHQQl8zo1L5mOxMGDgDd&ipAddress=";
+
+// const api_uri = 'https://geo.ipify.org/api/';
+// const current_verion = 'v1';
+
 const secret_api = 'ENTER_YOUR_API';
 
 const headers_option = {
@@ -20,9 +24,9 @@ const headers_option = {
 function getIpInfo(urlToFetch) {      
     
     if(urlToFetch == undefined) {
-        var ipUrl = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}`
+        var ipUrl = `${bypass_cors_url}${apiLink}`
     } else {
-        var ipUrl = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}&ipAdress=${urlToFetch}`
+        var ipUrl = `${bypass_cors_url}${apiLink}&ipAdress=${urlToFetch}`
     }
 
     fetch(ipUrl, headers_option)
@@ -30,8 +34,8 @@ function getIpInfo(urlToFetch) {
         console.log(ipUrl)
         return res.json()
     })
-    .then(function(data) {
-        console.log(data.ip)        
+    .then(function(value) {
+        console.log(value)        
     })
     .catch(function(error) {
         console.log(error)
@@ -41,7 +45,6 @@ function getIpInfo(urlToFetch) {
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()    
     getIpInfo(inputField.value)
-    return
 })
 
 
