@@ -4,8 +4,11 @@ html {
 }
 
 #app {
-  background: url("../images/pattern-bg.png") no-repeat;
-  background-size: auto 35vh;
+  position: relative;
+  height: 100vh;
+}
+
+.container-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16,9 +19,11 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 2em 1.3em;
-  position: relative;
-  height: calc(100vh - 4em);
+  width: 100%;
+  height: 300px;
+  padding: 2em 0 0;
+  background: url("../images/pattern-bg.png") no-repeat;
+  background-size: cover;
 }
 
 .title {
@@ -57,7 +62,7 @@ form {
 
 .container-input .search-input {
   height: 100%;
-  width: 100%;
+  width: calc(100% - 60px);
   border-radius: 0;
   border: transparent;
   padding: 0 15px;
@@ -160,13 +165,12 @@ form {
   z-index: -1;
   bottom: 0;
   width: 100%;
-  height: 65vh;
-  max-height: 650px;
+  height: calc(100vh - 300px);
 }
 
 @media screen and (min-width: 768px) {
-  #app {
-    background-size: auto 35vh;
+  .container-form {
+    height: 280px;
   }
   .title {
     color: #ffffff;
@@ -175,6 +179,7 @@ form {
     margin-bottom: 35px;
   }
   form {
+    width: 85%;
     max-width: 1110px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -203,10 +208,6 @@ form {
   }
   .container-output .output-content {
     text-align: left;
-  }
-  #container-map {
-    height: calc(100vh - auto 35vh);
-    max-height: inherit;
   }
 }
 /*# sourceMappingURL=style.css.map */

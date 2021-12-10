@@ -16,34 +16,36 @@
 </head>
 <body>
     <div id="app">
-        <h1 class="title">IP Address Tracker</h1>
-        <form>
-            <div class="container-input">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search for any IP address or domain">
-                <button id="submit-button" type="submit"></button>
-            </div>
-            <div class="container-output">
-                <div class="output-content">
-                    <p class="subtitle">ip adress</p>
-                    <div data-ip class="data">192.212.174.101</div>
+        <div class="container-form">
+            <h1 class="title">IP Address Tracker</h1>
+            <form>
+                <div class="container-input">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search for any IP address or domain">
+                    <button id="submit-button" type="submit"></button>
                 </div>
-                <div class="output-content">
-                    <p class="subtitle">location</p>
-                    <div data-location class="data">Brooklyn, NY 10001</div>
-                </div>
-                <div class="output-content">
-                    <p class="subtitle">timezone</p>
-                    <div data-timezone class="data">UTC -05.00</div>
-                </div>
-                <div class="output-content">
-                    <p class="subtitle">isp</p>
-                    <div data-isp class="data">SpaceX Starlink</div>
-                </div>
-                
-            </div>            
-        </form>
-    </div> 
-    <div id="container-map"></div> 
+                <div class="container-output">
+                    <div class="output-content">
+                        <p class="subtitle">ip adress</p>
+                        <div data-ip class="data">192.212.174.101</div>
+                    </div>
+                    <div class="output-content">
+                        <p class="subtitle">location</p>
+                        <div data-location class="data">Brooklyn, NY 10001</div>
+                    </div>
+                    <div class="output-content">
+                        <p class="subtitle">timezone</p>
+                        <div data-timezone class="data">UTC -05.00</div>
+                    </div>
+                    <div class="output-content">
+                        <p class="subtitle">isp</p>
+                        <div data-isp class="data">SpaceX Starlink</div>
+                    </div>
+                    
+                </div>            
+            </form>
+        </div>
+        <div id="container-map"></div>
+    </div>     
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </body>
