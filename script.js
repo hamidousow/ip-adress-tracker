@@ -9,21 +9,15 @@ const dataIsp = document.querySelector("[data-isp]");
 const bypass_cors_url = 'https://cors-anywhere.herokuapp.com/';
 const apiRequest = 'https://geo.ipify.org/api/v2/country,city?apiKey=at_gbpt1y9UojHQQl8zo1L5mOxMGDgDd&ipAddress=8.8.8.8';
 
-const headers_option = {
+const headersOption = {
     headers: {
         'Access-Control-Allow-Origin': '*',
     }
 }
 
-getIpInfo = (urlToFetch) => {      
-    
-    if(urlToFetch == undefined) {
-        var ipUrl = `${bypass_cors_url}${apiRequest}`
-    } else {
-        var ipUrl = `https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v2/country,city?apiKey=at_gbpt1y9UojHQQl8zo1L5mOxMGDgDd&ipAddress=${urlToFetch}`
-    }
+getIpInfo = (urlToFetch) => {     
 
-    fetch(ipUrl, headers_option)
+    fetch(`${bypass_cors_url}https://geo.ipify.org/api/v2/country,city?apiKey=at_gbpt1y9UojHQQl8zo1L5mOxMGDgDd&ipAddress=${urlToFetch}`, headersOption)
     .then(results => results.json())
     .then(value  => {
         console.log(value) 
@@ -39,20 +33,16 @@ getIpInfo = (urlToFetch) => {
 
 //localisation marker 
 
-const map = L.map('container-map', {
-    'center': [0,0],    
-    'zoom': 25,
-    'layers': [
-        L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        })
-    ]    
-})
+var map = L.map('container-map').setView([51.505, -0.09], 13);
 
-updateMarker = (update_marker = [-25, 25]) => {
-    map.setView(update_marker, 13); //first longitude & latitude, second paramater is the zoom level
-    L.marker(update_marker).addTo(map);
-}
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'your.mapbox.access.token'
+}).addTo(map);
 
 // end localisation
 
@@ -64,6 +54,8 @@ submitBtn.addEventListener('click', (e) => {
         alert('veuillez saisir une url ou un ip valide')
     }   
 })
+
+
 
 
 
