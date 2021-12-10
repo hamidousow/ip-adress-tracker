@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ip Tracker</title>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style/style.css">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
-    <script src="script.js" defer></script>    
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <!-- leaflet links -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    
+    <link rel="stylesheet" href="style/style.css">    
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="app">
@@ -39,16 +42,9 @@
                 
             </div>            
         </form>
-        <div id="map"></div>        
     </div> 
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoibGhhbWlkb3UiLCJhIjoiY2t3eG8wbGg1MGZzMzJ1cTEzdTdncnYzYyJ9.0mJK2tOSq02Y3OhqQ_x9hQ';
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v11', // style URL
-            center: [-74.5, 40], // starting position [lng, lat]
-            zoom: 9 // starting zoom
-        });
-    </script>   
+    <div id="container-map"></div> 
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </body>
 </html>
