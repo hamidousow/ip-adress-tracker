@@ -20,7 +20,7 @@ getIpInfo = (urlToFetch) => {
     if(urlToFetch == undefined) {
         var ipUrl = `${bypass_cors_url}${apiRequest}`
     } else {
-        var ipUrl = `${bypass_cors_url}${apiRequest}&ipAddress=${urlToFetch}`
+        var ipUrl = `https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v2/country,city?apiKey=at_gbpt1y9UojHQQl8zo1L5mOxMGDgDd&ipAddress=${urlToFetch}`
     }
 
     fetch(ipUrl, headers_option)
